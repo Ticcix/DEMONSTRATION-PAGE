@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dleplugin>
+	<name>Demonstration Page</name>
+	<description>მარტივი პლაგინი დაგეხმარებათ აჩვენოთ მომხმარებლებს დემო კონტენტი ცალკე მისამართით.</description>
+	<icon>engine/skins/images/ticcix_demo.png</icon>
+	<version>1.0</version>
+	<dleversion>13</dleversion>
+	<versioncompare>greater</versioncompare>
+	<upgradeurl>https://fb.com/Ticcix/</upgradeurl>
+	<filedelete>1</filedelete>
+	<needplugin></needplugin>
+	<mnotice>0</mnotice>
+	<mysqlinstall><![CDATA[]]></mysqlinstall>
+	<mysqlupgrade><![CDATA[]]></mysqlupgrade>
+	<mysqlenable><![CDATA[]]></mysqlenable>
+	<mysqldisable><![CDATA[]]></mysqldisable>
+	<mysqldelete><![CDATA[]]></mysqldelete>
+	<phpinstall><![CDATA[]]></phpinstall>
+	<phpupgrade><![CDATA[]]></phpupgrade>
+	<phpenable><![CDATA[]]></phpenable>
+	<phpdisable><![CDATA[]]></phpdisable>
+	<phpdelete><![CDATA[]]></phpdelete>
+	<notice><![CDATA[]]></notice>
+	<file name="engine/engine.php">
+		<operation action="after">
+			<searchcode><![CDATA[case "pm" :
+		include (DLEPlugins::Check(ENGINE_DIR . '/modules/pm.php'));
+		break;]]></searchcode>
+			<replacecode><![CDATA[case "demo" :
+include ENGINE_DIR . '/ticcix/mods/demo.php';
+break;]]></replacecode>
+		</operation>
+	</file>
+</dleplugin>
